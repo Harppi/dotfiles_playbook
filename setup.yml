@@ -1,0 +1,6 @@
+---
+- name: Setup macOS configuration
+  hosts: localhost
+  roles:
+    - dotfiles
+...

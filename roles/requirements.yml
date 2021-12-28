@@ -1,0 +1,5 @@
+---
+- src: git@github.com:Harppi/dotfiles.git
+  scm: git
+  version: remotes/origin/master
+...

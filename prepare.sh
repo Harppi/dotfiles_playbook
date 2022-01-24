@@ -36,10 +36,20 @@ function install_homebrew() {
     success "Homebrew already exists."
   else
     url=https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
+    substep "Running Homebrew installation script..."
     if /bin/bash -c "$(curl -fsSL ${url})"; then
-      success "Homebrew installation succeeded."
+      success "Running Homebrew installation script succeeded."
     else
-      error "Homebrew installation failed."
+      error "Running Homebrew installation script failed."
+      exit 1
+    fi
+    substep "Adding Homebrew to PATH..."
+    if echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' \
+      >> /Users/$(whoami)/.zprofile && \
+      eval "$(/opt/homebrew/bin/brew/shellenv)"; then
+      success "Adding Homebrew to PATH succeeded."
+    else
+      error "Adding Homebrew to PATH failed."
       exit 1
     fi
   fi

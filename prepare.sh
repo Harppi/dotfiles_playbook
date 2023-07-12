@@ -46,7 +46,7 @@ function install_homebrew() {
     substep "Adding Homebrew to PATH..."
     if echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' \
       >> /Users/$(whoami)/.zprofile && \
-      eval "$(/opt/homebrew/bin/brew/shellenv)"; then
+      eval "$(/opt/homebrew/bin/brew shellenv)"; then
       success "Adding Homebrew to PATH succeeded."
     else
       error "Adding Homebrew to PATH failed."
